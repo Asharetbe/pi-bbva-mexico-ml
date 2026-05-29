@@ -1,0 +1,5 @@
+# Modelos entrenados (no versionados en .gitignore)
+# M1_logistic_regression.pkl
+# M2_xgboost.json
+# M3_random_forest.pkl
+# M4_neural_network.h5

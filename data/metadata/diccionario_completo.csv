@@ -1,0 +1,121 @@
+﻿Variable,Correlacion Esperada,Descripción
+x1,Positiva,Máximo número de atrasos presentado en los últimos 4 meses considerando el mes de calificación
+x2,Positiva,Marca de reestructuras en los últimos 6 meses
+x3,Negativa,Número de créditos abiertos con instituciones financieras bancarias en los últimos 12 meses.
+x4,Negativa,Número de tarjetas de crédito activas con instituciones financieras bancarias en los últimos 12 meses
+x5,Negativa,Número de créditos abiertos con instituciones financieras No Bancarias en los últimos 12 meses.
+x6,Negativa,Porcentaje de pagos en tiempo en los últimos 12 meses a instituciones financieras bancarias.
+x7,Positiva,Días de mora promedio con instituciones financieras bancarias en los últimos 12 meses.
+x8,Negativa,Monto máximo otorgado en los últimos 12 meses.
+x9,Negativa,Antigüedad en el Buró
+x10,Positiva,Número de Instituciones reportadas en los últimos 12 meses.
+x11,Negativa,"Deuda Total (Instituciones Bancarias)Valor: numérico dos decimales, en pesos.Ej.5000000.00(pesos)"
+x12,Negativa,"Deuda a Corto Plazo (Instituciones Bancarias)Valor: numérico dos decimales, en pesos.Ej.5000000.00(pesos)"
+x13,Positiva,"Deuda Total (Instituciones No Bancarias)Valor: numérico dos decimales, en pesos.Ej.5000000.00(pesos)"
+x14,Negativa,"Deuda a Corto Plazo (Instituciones No Bancarias)Valor: numérico dos decimales, en pesos.Ej.5000000.00(pesos)"
+x15,Negativa,"Deuda Total de AcreditadoValor: numérico dos decimales, en pesos.Ej.5000000.00(pesos)"
+x16,Negativa,"Deuda a Corto Plazo del AcreditadoValor: numérico dos decimales, en pesos.Ej.5000000.00(pesos)"
+x17,Negativa,Buró: Media ponderada saldo vigente de los contratos
+x18,Negativa,Buró: Mínimo plazo de los contratos
+x19,Negativa,Buró: Media del plazo de los contratos
+x20,Negativa,Buró: Máximo plazo de los contratos
+x21,Negativa,Buró: Media ponderada plazo de los contratos
+x22,Negativa,Buró: Antigüedad media de los contratos
+x23,Negativa,Buró: Antigüedad máxima de los contratos
+x24,Negativa,Buró: Mínimo de los cocientes del saldo vigente entre  saldo total en los últimos 11 meses.
+x25,Negativa,Buró: Media de los cocientes del saldo vigente entre  saldo total en los últimos 11 meses.
+x26,Positiva,Buró: Media de los cocientes del saldo moroso entre  saldo total en los últimos 11 meses.
+x27,Positiva,Buró: Máximo de los cocientes del saldo moroso entre  saldo total en los últimos 11 meses.
+x28,Positiva,Buró: Máximo de los cocientes del saldo moroso de 1 a 29 días entre  saldo total en los últimos 11 meses.
+x29,Positiva,Buró: Media de los cocientes del saldo moroso de 1 a 29 días entre  saldo total en los últimos 11 meses.
+x30,Negativa,Buró: Media ponderada del saldo vigente entre  último saldo total en los últimos 11 meses.
+x31,Positiva,Buró: Media ponderada del saldo moroso entre  último saldo total en los últimos 11 meses.
+x32,Positiva,Buró: Media ponderada del saldo moroso de 1 a 29 días entre  último saldo total en los últimos 11 meses.
+x33,Positiva,"Buró: Media de los incrementos mensuales del saldo moroso en los últimos 11 meses, expresado en porcentaje."
+x34,Positiva,"Buró: Media de los incrementos mensuales del saldo moroso de 1 a 29 días en los últimos 11 meses, expresado en porcentaje."
+x35,Positiva,"Buró: Porcentaje de incremento del saldo vigente mes t - mes t-11 , expresado en porcentaje."
+x36,Negativa,Buró: Mínimo de los cocientes del saldo vigente entre  saldo total en los últimos 6 meses.
+x37,Negativa,Buró: Media de los cocientes del saldo vigente entre  saldo total en los últimos 6 meses.
+x38,Positiva,Buró: Media de los cocientes del saldo moroso entre  saldo total en los últimos 6 meses.
+x39,Positiva,Buró: Máximo de los cocientes del saldo moroso entre  saldo total en los últimos 6 meses.
+x40,Positiva,Buró: Máximo de los cocientes del saldo moroso de 1 a 29 días entre  saldo total en los últimos 6 meses.
+x41,Positiva,Buró: Media de los cocientes del saldo moroso de 1 a 29 días entre  saldo total en los últimos 6 meses.
+x42,Negativa,Buró: Media ponderada del saldo vigente entre  último saldo total en los últimos 6 meses.
+x43,Positiva,Buró: Media ponderada del saldo moroso entre  último saldo total en los últimos 6 meses.
+x44,Positiva,Buró: Media ponderada del saldo moroso de 1 a 29 días entre  último saldo total en los últimos 6 meses.
+x45,Negativa,Buró: Mínimo de los cocientes del saldo vigente entre  saldo total en los últimos 3 meses.
+x46,Negativa,Buró: Media de los cocientes del saldo vigente entre  saldo total en los últimos 3 meses.
+x47,Positiva,Buró: Media de los cocientes del saldo moroso entre  saldo total en los últimos 3 meses.
+x48,Positiva,Buró: Máximo de los cocientes del saldo moroso entre  saldo total en los últimos 3 meses.
+x49,Positiva,Buró: Máximo de los cocientes del saldo moroso de 1 a 29 días entre  saldo total en los últimos 3 meses.
+x50,Negativa,Buró: Media ponderada del saldo vigente entre  último saldo total en los últimos 3 meses.
+x51,Positiva,Buró: Media ponderada del saldo moroso entre  último saldo total en los últimos 3 meses.
+x52,Positiva,Max Num días mora interno últimos 12 meses.
+x53,Negativa,Promedio del número de cuentas en dólares en los últimos 3 meses
+x54,Negativa,Promedio del número de cuentas en los últimos 3 meses
+x55,Negativa,Máxima diferencia entre la fecha de información y fecha de alta de la cuenta en los últimos 12 meses.
+x56,Negativa,Máxima diferencia entre la fecha de información y fecha de alta de la cuenta en los últimos 6 meses.
+x57,Negativa,Máxima diferencia entre la fecha de información y fecha de alta de la cuenta en los últimos 3 meses.
+x58,Negativa,"Suma del número de veces que el saldo al cierre de las chequeras fue mayor a 100,000 considerando 3 meses."
+x59,Negativa,"Promedio del número de veces que el saldo al cierre de las chequeras fue mayor a 100,000 considerando 12 meses."
+x60,Negativa,"Promedio del número de veces que el saldo al cierre de las chequeras fue mayor a 100,000 considerando 3 meses."
+x61,Negativa,"Suma del número de veces que el saldo al cierre de las chequeras fue mayor a 30,000 considerando 3 meses."
+x62,Negativa,"Promedio del número de veces que el saldo al cierre de las chequeras fue mayor a 30,000 considerando 3 meses."
+x63,Negativa,"Suma del número de veces que el saldo al cierre de las chequeras fue mayor a 15,000 considerando 3 meses."
+x64,Negativa,"Promedio del número de veces que el saldo al cierre de las chequeras fue mayor a 15,000 considerando 12 meses."
+x65,Negativa,"Promedio del número de veces que el saldo al cierre de las chequeras fue mayor a 15,000 considerando 3 meses."
+x66,Negativa,"Suma del número de veces que el saldo promedio de las chequeras fue mayor a 100,000 considerando 12 meses."
+x67,Negativa,"Suma del número de veces que el saldo promedio de las chequeras fue mayor a 100,000 considerando 6 meses."
+x68,Negativa,"Suma del número de veces que el saldo promedio de las chequeras fue mayor a 100,000 considerando 3 meses."
+x69,Negativa,"Promedio del número de veces que el saldo promedio de las chequeras fue mayor a 100,000 considerando 12 meses."
+x70,Negativa,"Promedio del número de veces que el saldo promedio de las chequeras fue mayor a 100,000 considerando 6 meses."
+x71,Negativa,"Promedio del número de veces que el saldo promedio de las chequeras fue mayor a 100,000 considerando 3 meses."
+x72,Negativa,"Suma del número de veces que el saldo promedio de las chequeras fue mayor a 30,000 considerando 6 meses."
+x73,Negativa,"Suma del número de veces que el saldo promedio de las chequeras fue mayor a 30,000 considerando 3 meses."
+x74,Negativa,"Promedio del número de veces que el saldo promedio de las chequeras fue mayor a 30,000 considerando 12 meses."
+x75,Negativa,"Promedio del número de veces que el saldo promedio de las chequeras fue mayor a 30,000 considerando 6 meses."
+x76,Negativa,"Promedio del número de veces que el saldo promedio de las chequeras fue mayor a 30,000 considerando 3 meses."
+x77,Negativa,"Suma del número de veces que el saldo promedio de las chequeras fue mayor a 15,000 considerando 6 meses."
+x78,Negativa,"Suma del número de veces que el saldo promedio de las chequeras fue mayor a 15,000 considerando 3 meses."
+x79,Negativa,"Promedio del número de veces que el saldo promedio de las chequeras fue mayor a 15,000 considerando 6 meses."
+x80,Negativa,"Promedio del número de veces que el saldo promedio de las chequeras fue mayor a 15,000 considerando 3 meses."
+x81,Negativa,Porcentaje de la suma del Saldo al cierre de las chequeras del mes 0 a 11  entre 12 a 23
+x82,Negativa,Porcentaje del promedio del Saldo al cierre de las chequeras del mes 0 a 5  entre 12 a 17
+x83,Positiva,Porcentaje de la deuda interna del mes 0 al 11  promedio del saldo al cierre de las chequeras  del mes 0 al 11
+x84,Positiva,Porcentaje de la deuda interna del mes 0 al 5  promedio del saldo al cierre de las chequeras  del mes 0 al 5
+x85,Negativa,Porcentaje de la suma del saldo promedio de las chequeras del mes 0 a 11  entre 12 a 23
+x86,Negativa,Porcentaje de la suma del saldo promedio de las chequeras del mes 0 a 5  entre 12 a 17
+x87,Negativa,Porcentaje del promedio del saldo promedio de las chequeras del mes 0 a 11  entre 12 a 23
+x88,Negativa,Porcentaje del promedio del saldo promedio de las chequeras del mes 0 a 5  entre 12 a 17
+x89,Positiva,Promedio de los ultimos 12 meses de: Deuda de mes entre promedio del saldo promedio de las chequeras del mes 0 al 11.
+x90,Positiva,Promedio de los ultimos 6 meses de: Deuda de mes entre promedio del saldo promedio de las chequeras del mes 0 al 11.
+x91,Positiva,Promedio de los ultimos 3 meses de: Deuda de mes entre promedio del saldo promedio de las chequeras del mes 0 al 11.
+x92,Positiva,Promedio de los ultimos 12 meses de: Deuda de mes entre promedio del saldo al cierre de las chequeras del mes 0 al 11.
+x93,Positiva,Promedio de los ultimos 6 meses de: Deuda de mes entre promedio del saldo al cierre de las chequeras del mes 0 al 11.
+x94,Positiva,Promedio de los ultimos 3 meses de: Deuda de mes entre promedio del saldo al cierre de las chequeras del mes 0 al 11.
+x95,Negativa,Promedio de los últimos 12 meses de: porcentaje del promedio del saldo promedio de las chequeras del mes 0 a 11  entre 12 a 23
+x96,Negativa,Promedio de los últimos 6 meses de: porcentaje del promedio del saldo promedio de las chequeras del mes 0 a 11  entre 12 a 23
+x97,Negativa,Promedio de los últimos 6 meses de: porcentaje del promedio del saldo promedio de las chequeras del mes 0 a 5  entre 12 a 17
+x98,Positiva,Promedio ultimos 12 meses de: deuda interna del mes entre promedio del saldo promedio de chequeras  del mes 0 al 11
+x99,Negativa,"Suma del número de veces que el monto de los retiros fue mayor a 100,000 considerando 12 meses."
+x100,Negativa,"Suma del número de veces que el monto de los retiros fue mayor a 100,000 considerando 12 meses."
+x101,Negativa,"Suma del número de veces que el monto de los retiros fue mayor a 100,000 considerando 6 meses."
+x102,Negativa,"Promedio del número de veces que el monto de los retiros fue mayor a 100,000 considerando 12 meses."
+x103,Negativa,"Promedio del número de veces que el monto de los retiros fue mayor a 100,000 considerando 6 meses."
+x104,Negativa,"Promedio del número de veces que el monto de los retiros fue mayor a 100,000 considerando 3 meses."
+x105,Negativa,"Suma del número de veces que el monto de los retiros fue mayor a 30,000 considerando 12 meses."
+x106,Negativa,"Suma del número de veces que el monto de los retiros fue mayor a 30,000 considerando 6 meses."
+x107,Negativa,"Promedio del número de veces que el monto de los retiros fue mayor a 30,000 considerando 12 meses."
+x108,Negativa,"Promedio del número de veces que el monto de los retiros fue mayor a 30,000 considerando 6 meses."
+x109,Negativa,"Promedio del número de veces que el monto de los retiros fue mayor a 30,000 considerando 3 meses."
+x110,Negativa,"Suma del número de veces que el monto de los retiros fue mayor a 15,000 considerando 12 meses."
+x111,Negativa,"Suma del número de veces que el monto de los retiros fue mayor a 15,000 considerando 6 meses."
+x112,Negativa,"Suma del número de veces que el monto de los retiros fue mayor a 15,000 considerando 3 meses."
+x113,Negativa,"Promedio del número de veces que el monto de los retiros fue mayor a 15,000 considerando 12 meses."
+x114,Negativa,"Promedio del número de veces que el saldo al cierre de captación fue mayor a 100,000 considerando 12 meses."
+x115,Positiva,Porcentaje de la deuda interna del mes 0 al 5  promedio del saldo al cierre de captación  del mes 0 al 5
+x116,Positiva,Promedio de los ultimos 12 meses de: Deuda de mes entre promedio del saldo al cierre de captación del mes 0 al 11.
+x117,Positiva,Promedio de los ultimos 6 meses de: Deuda de mes entre promedio del saldo al cierre de captación del mes 0 al 11.
+x118,Positiva,Promedio de los ultimos 3 meses de: Deuda de mes entre promedio del saldo al cierre de captación del mes 0 al 11.
+x119,Positiva,Promedio ultimos 12 meses de: deuda interna del mes entre promedio del saldo promedio de captación  del mes 0 al 5
+x120,Negativa,Promedio del saldo promedio de captación del mes 0 a 5 entre promedio del monto de los retiros del mes 0 al 5
