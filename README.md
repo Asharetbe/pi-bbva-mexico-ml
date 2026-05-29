@@ -7,24 +7,11 @@
 
 ## 📋 Descripción del Proyecto
 
-Proyecto académico para el desarrollo e implementación de **cuatro modelos de machine learning** orientados a estimar la **Probabilidad de Incumplimiento (PI)** crediticia de clientes BBVA México.
+Proyecto académico para el desarrollo e implementación de **cuatro modelos de machine learning** orientados a estimar la **Probabilidad de Incumplimiento (PI)** crediticia de clientes BBVA México (Datos Sinteticos).
 
 **Objetivo**: Crear modelos predictivos robustos que identifiquen riesgo de incumplimiento y evaluar su desempeño mediante métricas estándar de riesgo crediticio.
 
 **Base de datos**: 10,000 observaciones con 120 variables predictoras y 1 variable binaria de incumplimiento (8% de incumplimiento).
-
-**Entrega final**: 30 de mayo de 2026 — Reporte en PDF + Word + Notebooks reproducibles.
-
----
-
-## 👥 Responsables y Modelos Asignados
-
-| Integrante | Modelo | Secciones del Informe |
-|-----------|--------|----------------------|
-| **P1** | Regresión Logística + WOE | §2.1 Problemática, §3 Conclusiones, Scorecard |
-| **P2** | XGBoost / Gradient Boosting | §1.1 BBVA México, §2.4 Comparación de modelos |
-| **P3** | Random Forest | §2.2.2 Análisis bivariado, Infraestructura splits |
-| **P4** | Red Neuronal MLP | §2.2.1 Análisis univariado, Integración documento |
 
 ---
 
@@ -228,19 +215,6 @@ git push origin P1/woe-scorecard
 - Base: `main` ← Compare: `P1/woe-scorecard`
 - Descripción: explicar cambios principales
 - Esperar revisión de P4 (integrador)
-
----
-
-## 📅 Cronograma de Hitos
-
-| Fecha | Hito | Responsable |
-|-------|------|------------|
-| **May 26** | ✅ Setup repositorio, splits, utils | P4 |
-| **May 27** | Modelos M1 y M2 entrenados | P1, P2 |
-| **May 28** | Modelos M3 y M4 entrenados | P3, P4 |
-| **May 29** | Informe combinado (secciones integradas) | P4 |
-| **May 30** | ✅ Revisión final, deploy, entrega | Todos |
-
 ---
 
 ## 🔧 Métricas de Evaluación Comunes
@@ -260,62 +234,6 @@ Todos los modelos se evalúan con:
 from src.utils.evaluation import comprehensive_evaluation
 metrics = comprehensive_evaluation(y_true, y_pred, y_proba, model_name="M1_LR")
 ```
-
----
-
-## 🌳 Convención de Ramas Git
-
-```
-main/                          # Rama principal (entrega final)
-├── P1/woe-scorecard           # P1 — Regresión Logística
-├── P2/xgboost-tuning          # P2 — XGBoost
-├── P3/random-forest-features  # P3 — Random Forest
-└── P4/neural-network          # P4 — Red Neuronal
-
-develop/ (opcional)            # Rama de integración (si se usa)
-```
-
----
-
-## 💬 Convención de Commits
-
-**Formato**:
-```
-[P#] type: descripción corta
-
-Descripción detallada (opcional)
-- Cambio 1
-- Cambio 2
-```
-
-**Ejemplos válidos**:
-```
-[P1] feat: implementar WOE para variables continuas
-[P2] feat: tuning hiperparámetros XGBoost con Optuna
-[P3] feat: análisis bivariado y selección de features
-[P4] feat: normalización de datos para red neuronal
-[P4] docs: integrar secciones del informe final
-[P1] fix: corregir cálculo de scorecard
-[P2] refactor: mejorar modularidad código evaluación
-```
-
-**Tipos permitidos**:
-- `feat` — Nueva funcionalidad
-- `fix` — Corrección de bugs
-- `docs` — Documentación
-- `refactor` — Mejora de código
-- `test` — Tests o validación
-- `chore` — Tareas de configuración
-
----
-
-## 📞 Contacto y Preguntas
-
-Si tienes dudas sobre:
-- **Splits y datos**: contactar a P3 (infraestructura)
-- **Evaluación común**: contactar a P4 (integración)
-- **Modelo X**: contactar a Px responsable
-
 ---
 
 ## 📄 Licencia
