@@ -1,0 +1,38 @@
+Device : cuda  GPU: NVIDIA RTX PRO 4500 Blackwell
+Trials : 40 por bloque  |  Final epochs: 600
+Train: 172  Test: 171  OOS: 176  PI=7.6%
+Variables a usar: 33  (bivariado candidatas)
+
+Fitteando WOE...
+WOE solo: 33 features  |  WOE+FE: 43 features
+
+===========================================================================
+INICIANDO 40 BLOQUES  (20 arquitecturas × 2 variantes de features)
+FILTRO RUN_ONLY activo: 6 bloques seleccionados
+  • SimpleMLP / WOE
+  • ResAutoInt / WOE
+  • SAINT / WOE
+  • SimpleMLP / FE
+  • ResAutoInt / FE
+  • SAINT / FE
+===========================================================================
+
+===========================================================================
+BLOQUE: SimpleMLP / WOE  (33 features, 40 trials)
+===========================================================================
+Traceback (most recent call last):
+  File "/root/finanzas PF/gran_busqueda.py", line 932, in <module>
+    res=run_block(name,mk_fn,Xtr_b,Xte_b,Xoo_b,sp)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/finanzas PF/gran_busqueda.py", line 714, in run_block
+    if study.best_trial is None: print(f"  Sin trials exitosos"); return None
+       ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/optuna/study/study.py", line 156, in best_trial
+    return self._get_best_trial(deepcopy=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/optuna/study/study.py", line 308, in _get_best_trial
+    best_trial = self._storage.get_best_trial(self._study_id)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/optuna/storages/_in_memory.py", line 251, in get_best_trial
+    raise ValueError("No trials are completed yet.")
+ValueError: No trials are completed yet.
