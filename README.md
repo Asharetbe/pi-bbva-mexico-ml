@@ -1,246 +1,60 @@
 # Estimación de Probabilidad de Incumplimiento (PI) - BBVA México
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![Status](https://img.shields.io/badge/Status-En%20Desarrollo-yellow?style=flat-square)
-![Contributors](https://img.shields.io/badge/Contributors-4-blue?style=flat-square)
+Proyecto académico para el desarrollo e implementación de **cuatro familias de modelos de machine learning** (Regresión Logística, Random Forest, XGBoost y Redes Neuronales Profundas) orientados a estimar la **Probabilidad de Incumplimiento (PI)** crediticia de clientes BBVA (Datos Sintéticos).
 
-## 📋 Descripción del Proyecto
+## 📊 Resumen de Resultados
 
-Proyecto académico para el desarrollo e implementación de **cuatro modelos de machine learning** orientados a estimar la **Probabilidad de Incumplimiento (PI)** crediticia de clientes BBVA México (Datos Sinteticos).
+Se evaluaron los modelos base bajo las mismas métricas (optimizando threshold por métrica KS). A continuación, el desempeño calculado sobre la partición fuera de tiempo / validación final (OOS):
 
-**Objetivo**: Crear modelos predictivos robustos que identifiquen riesgo de incumplimiento y evaluar su desempeño mediante métricas estándar de riesgo crediticio.
+| Modelo | AUC OOS | Gini OOS | KS OOS | Recall OOS | Precision OOS | Gap Train-OOS | PSI OOS |
+|---|---|---|---|---|---|---|---|
+| **Regresión Logística (WOE)** | 0.7370 | 0.4740 | 0.3834 | 0.6456 | 0.1579 | 0.0627 | 0.0024 |
+| **Random Forest** | 0.7570 | 0.5140 | 0.4290 | 0.6460 | 0.1910 | 0.1760 | 0.0520 |
+| **XGBoost** | **0.7900** | **0.5800** | **0.4700** | 0.3671 | **0.3494** | 0.2057 | 0.0382 |
+| **Deep Learning (SimpleMLP)** | 0.7578 | 0.5156 | 0.4078 | - | - | 0.0989 | 0.0123 |
+| **Deep Learning (ResAutoInt)** | 0.7552 | 0.5105 | 0.4149 | - | - | **0.0723** | **0.0039** |
 
-**Base de datos**: 10,000 observaciones con 120 variables predictoras y 1 variable binaria de incumplimiento (8% de incumplimiento).
+**Conclusiones Principales:**
+- **XGBoost** obtiene el mayor poder discriminante (AUC y KS), pero presenta el mayor nivel de sobreajuste (brecha de AUC mayor al 20% vs el set de entrenamiento).
+- **Regresión Logística (Scorecard)** es el modelo más congruente y estable en base a su distribución (PSI virtualmente 0 y mucha robustez de caída entre Train-OOS), haciéndolo una opción excelente y fácil de explicar.
+- Las arquitecturas de **Deep Learning** logran una excelente estabilidad poblacional (PSI OOS < 0.02) y, mediante fine-tuning y arquitecturas orientadas a datos tabulares (ResAutoInt), superan fácilmente la robustez del Random Forest asimilando resultados consistentes.
 
----
+## 🛠️ Reproducibilidad
 
-## 📁 Estructura del Proyecto
+Todo el código está diseñado para resolver las rutas automáticamente desde la base del repositorio y sin paths *hardcodeados*. 
 
-```
-pi-bbva-mexico-ml/
-├── README.md                          # Este archivo
-├── requirements.txt                   # Dependencias Python
-├── .gitignore                         # Configuración Git
-├── setup.py                           # (Opcional) Instalación como paquete
-│
-├── data/
-│   ├── raw/
-│   │   └── BasePI.xlsx                # Base de datos original (NO VERSIONADO)
-│   ├── processed/
-│   │   ├── train_70_seed42.csv        # Split entrenamiento (70%)
-│   │   ├── test_20_seed42.csv         # Split prueba (20%)
-│   │   └── oot_10_seed42.csv          # Split fuera de tiempo (10%)
-│   └── metadata/
-│       └── diccionario_completo.csv   # Diccionario de variables
-│
-├── src/
-│   ├── __init__.py
-│   ├── utils/
-│   │   ├── __init__.py
-│   │   ├── evaluation.py              # Función común de evaluación
-│   │   ├── splits.py                  # Generador de splits estratificados
-│   │   └── preprocessing.py           # Utilidades de preprocesamiento común
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── logistic_regression.py     # M1: Regresión Logística
-│   │   ├── xgboost_model.py           # M2: XGBoost
-│   │   ├── random_forest.py           # M3: Random Forest
-│   │   └── neural_network.py          # M4: Red Neuronal MLP
-│   └── config.py                      # Configuración global (seed, paths, etc.)
-│
-├── notebooks/
-│   ├── P1_Logistic_Regression/
-│   │   ├── 01_P1_EDA_LR.ipynb         # Análisis exploratorio
-│   │   ├── 02_P1_WOE_Engineering.ipynb # WOE y feature engineering
-│   │   ├── 03_P1_Model_Training.ipynb # Entrenamiento del modelo
-│   │   └── 04_P1_Scorecard.ipynb      # Construcción del scorecard
-│   │
-│   ├── P2_XGBoost/
-│   │   ├── 01_P2_EDA_XGB.ipynb        # Análisis exploratorio
-│   │   ├── 02_P2_Feature_Selection.ipynb # Selección de features
-│   │   ├── 03_P2_Hyperparameter_Tuning.ipynb # Tuning
-│   │   └── 04_P2_Model_Evaluation.ipynb # Evaluación y comparación
-│   │
-│   ├── P3_Random_Forest/
-│   │   ├── 01_P3_EDA_RF.ipynb         # Análisis exploratorio
-│   │   ├── 02_P3_Bivariate_Analysis.ipynb # Análisis bivariado
-│   │   ├── 03_P3_Model_Training.ipynb # Entrenamiento
-│   │   └── 04_P3_Feature_Importance.ipynb # Importancia de variables
-│   │
-│   └── P4_Neural_Network/
-│       ├── 01_P4_EDA_NN.ipynb         # Análisis exploratorio
-│       ├── 02_P4_Univariate_Analysis.ipynb # Análisis univariado
-│       ├── 03_P4_Data_Normalization.ipynb # Normalización
-│       └── 04_P4_Model_Training.ipynb # Entrenamiento MLP
-│
-├── models/
-│   ├── M1_logistic_regression.pkl     # Modelo entrenado P1
-│   ├── M2_xgboost.json                # Modelo entrenado P2
-│   ├── M3_random_forest.pkl           # Modelo entrenado P3
-│   └── M4_neural_network.h5           # Modelo entrenado P4
-│
-├── results/
-│   ├── metrics/
-│   │   ├── M1_performance_metrics.csv
-│   │   ├── M2_performance_metrics.csv
-│   │   ├── M3_performance_metrics.csv
-│   │   └── M4_performance_metrics.csv
-│   ├── plots/
-│   │   ├── roc_curves_comparison.png
-│   │   ├── feature_importance.png
-│   │   └── confusion_matrices.png
-│   └── predictions/
-│       ├── M1_predictions_test.csv
-│       ├── M2_predictions_test.csv
-│       ├── M3_predictions_test.csv
-│       └── M4_predictions_test.csv
-│
-├── docs/
-│   ├── PROJECT_CHARTER.md             # Alcance y objetivos
-│   ├── TECHNICAL_SPECS.md             # Especificaciones técnicas
-│   ├── BRANCHING_STRATEGY.md          # Estrategia de ramas Git
-│   └── COMMIT_CONVENTION.md           # Convención de commits
-│
-└── reports/
-    ├── Informe_Final_PI_BBVA.pdf      # Informe final (entrega)
-    ├── Informe_Final_PI_BBVA.docx     # Versión Word
-    └── Resumen_Ejecutivo.pdf          # Resumen para presentación
-```
-
----
-
-## 🔄 Split de Datos
-
-Los datos se dividen **estratificados** con `random_state=42`:
-
-- **Train (70%)**: 7,000 observaciones → Entrenamiento
-- **Test (20%)**: 2,000 observaciones → Evaluación del desempeño
-- **OOT (10%)**: 1,000 observaciones → Prueba fuera de tiempo (validación de estabilidad)
-
-**Comando para generar splits**:
-```bash
-python src/utils/splits.py --input data/raw/BasePI.xlsx --output data/processed/
-```
-
----
-
-## 📦 Instalación y Setup
-
-### Requisitos previos
-- Python 3.9 o superior
-- pip o conda
-- Git
-
-### Pasos de instalación
-
-1. **Clonar el repositorio**:
+1. **Clonar e preparar el entorno:**
    ```bash
    git clone https://github.com/Asharetbe/pi-bbva-mexico-ml.git
    cd pi-bbva-mexico-ml
-   ```
-
-2. **Crear entorno virtual**:
-   ```bash
-   python -m venv venv
-   ```
-   - En Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - En macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-
-3. **Instalar dependencias**:
-   ```bash
+   python -m venv env
+   source env/bin/activate  # En Windows: env\Scripts\activate
    pip install -r requirements.txt
    ```
 
-4. **Generar splits de datos** (ejecutar una sola vez):
-   ```bash
-   python src/utils/splits.py --input data/raw/BasePI.xlsx --output data/processed/
-   ```
+2. **Preparar Subconjuntos (Splits) de Datos:**
+   Si cuentas con el archivo original crudo (`.xlsx`), colócalo en `data/raw/BasePI.xlsx`.  
+   *Nota: Por seguridad, los datos crudos no se suben al control de versiones.*  
+   Ejecuta el notebook `notebooks/P3_RandomForest/01_p3_splits_diagnostico.ipynb` para generar correctamente las particiones pre-procesadas `[X_train, y_train, X_test, etc.]` dentro de `data/splits/`.
 
-5. **Verificar setup**:
-   ```bash
-   python -c "import pandas, sklearn, xgboost, tensorflow, keras; print('✓ Setup OK')"
-   ```
+3. **Análisis Bivariado Integrado:**
+   Ejecuta `notebooks/P3_RandomForest/02_p3_bivariado_final.ipynb` para crear las transformaciones de Variables y sus valores calculados en formato `.csv` guardados en `data/variables_bivariadas/`. (Estos archivos son de requerimiento para cargar en los notebooks de XGBoost, LogReg, DL, etc.).
 
----
+4. **Entrenar y Evaluar Modelos:**
+   Puedes ejecutar los demás archivos e investigaciones en los notebooks de tu elección, ya que encontrarán sus dependencias adecuadamente:
+   - **LogReg**: `notebooks/P1_LogReg/regresionLog_proyectoFinal.ipynb`
+   - **XGBoost**: `notebooks/P2_XGBoost/01_P2_Modelo_XGBoost.ipynb`
+   - **Random Forest**: `notebooks/P3_RandomForest/03_p3_rf_baseline.ipynb` o el de *tuning* `04_p3_...`
+   - **Deep Learning**: `cd notebooks/P4_NeuralNet/ && python busqueda_focalizada.py` (o `gran_busqueda.py`)
 
-## 🚀 Instrucciones de Reproducción
+## 📁 Estructura del Repositorio
 
-### Para cada integrante
-
-**Paso 1: Clonar y actualizar el repositorio**
-```bash
-git clone https://github.com/Asharetbe/pi-bbva-mexico-ml.git
-cd pi-bbva-mexico-ml
-git pull origin main
-```
-
-**Paso 2: Crear rama personal** (usar convención `[P#]/feature-description`)
-```bash
-git checkout -b P1/woe-scorecard        # P1
-git checkout -b P2/xgboost-tuning       # P2
-git checkout -b P3/random-forest-features # P3
-git checkout -b P4/neural-network       # P4
-```
-
-**Paso 3: Instalar entorno local**
-```bash
-python -m venv venv
-venv\Scripts\activate              # Windows
-source venv/bin/activate           # macOS/Linux
-pip install -r requirements.txt
-python src/utils/splits.py --input data/raw/BasePI.xlsx --output data/processed/
-```
-
-**Paso 4: Trabajar en notebooks**
-- Abrir `notebooks/P#_ModelName/` correspondiente
-- Seguir plantilla de secciones predefinidas
-- Guardar resultados en `results/`
-
-**Paso 5: Hacer commit y push**
-```bash
-git add .
-git commit -m "[P1] feat: implementar WOE y scorecard"  # Usar convención
-git push origin P1/woe-scorecard
-```
-
-**Paso 6: Crear Pull Request**
-- En GitHub: New Pull Request
-- Base: `main` ← Compare: `P1/woe-scorecard`
-- Descripción: explicar cambios principales
-- Esperar revisión de P4 (integrador)
----
-
-## 🔧 Métricas de Evaluación Comunes
-
-Todos los modelos se evalúan con:
-
-- **AUROC** (Area Under ROC Curve) — Discriminación
-- **KS Statistic** — Poder de separación
-- **Gini Coefficient** — Concentración del riesgo
-- **Precisión, Recall, F1-Score** — Exactitud
-- **Matriz de Confusión** — Distribución de predicciones
-- **Curva ROC** — Visualización
-- **PSI (Population Stability Index)** — Estabilidad temporal
-
-**Función común**: `src/utils/evaluation.py`
-```python
-from src.utils.evaluation import comprehensive_evaluation
-metrics = comprehensive_evaluation(y_true, y_pred, y_proba, model_name="M1_LR")
-```
----
-
-## 📄 Licencia
-
-MIT License — Proyecto académico para BBVA México (2026).
-
----
-
-**Última actualización**: 2026-05-28  
-**Estado**: En desarrollo — Setup y utilidades completadas ✓
+- `data/` : Subdirectorios de particiones reproducibles (`splits/`), outputs temporales (`variables_bivariadas/`) y archivo crudo inicial (`raw/`).
+- `notebooks/` : Secciones segregadas por modelo.
+  - `P1_LogReg/` : Scorecard y Regresión Logística usando técnica de WOEs.
+  - `P2_XGBoost/` : Investigación del algoritmo Gradient Boosting base.
+  - `P3_RandomForest/` : Notebooks fundacionales (diagnóstico, split poblacional y bivariado), y estudio de Bosques Aleatorios.
+  - `P4_NeuralNet/` : Scripts parametrizados en python crudo para arquitecturas Deep Learning, incluyendo Optuna HP Tuning.
+- `src/utils/` : Funciones centralizadas transversales. Fundamental para `evaluation.py` donde se homogeniza la métrica `KS` y `Population Stability Index (PSI)`.
+- `reports/` : Almacenamiento local automatizado de gráficos / métricas .csv para documentación rápida.
+- `models/` : Almacenamiento local automatizado para archivos de validación de modelos u operaciones generadas.
